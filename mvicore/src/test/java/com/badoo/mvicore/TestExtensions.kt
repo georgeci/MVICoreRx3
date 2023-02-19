@@ -1,6 +1,7 @@
 package com.badoo.mvicore
 
-import io.reactivex.observers.TestObserver
+import io.reactivex.rxjava3.observers.TestObserver
 
-fun <T> TestObserver<T>.onNextEvents() =
-        events[0]
+//TODO
+fun <T : Any> TestObserver<T>.onNextEvents() = this.values()
+

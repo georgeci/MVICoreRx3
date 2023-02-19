@@ -7,19 +7,19 @@ import com.badoo.mvicore.element.PostProcessor
 import com.badoo.mvicore.element.Reducer
 import com.badoo.mvicore.element.WishToAction
 import com.badoo.mvicore.utils.RxErrorRule
-import io.reactivex.Observable
-import io.reactivex.ObservableSource
-import io.reactivex.Scheduler
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.ObservableSource
+import io.reactivex.rxjava3.core.Scheduler
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.rxjava3.kotlin.plusAssign
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 /**
  * Tests async functionality of [BaseAsyncFeature].
@@ -29,7 +29,8 @@ class AsyncBaseFeatureTest {
 
     private val featureExecutor = Executors.newSingleThreadExecutor { Thread(it, THREAD_FEATURE) }
     private val featureScheduler = Schedulers.from(featureExecutor)
-    private val observationExecutor = Executors.newSingleThreadExecutor { Thread(it, THREAD_OBSERVATION) }
+    private val observationExecutor =
+        Executors.newSingleThreadExecutor { Thread(it, THREAD_OBSERVATION) }
     private val observationScheduler = Schedulers.from(observationExecutor)
     private val disposable = CompositeDisposable()
 
@@ -197,7 +198,7 @@ class AsyncBaseFeatureTest {
         )
     )
 
-    private fun <T> ObservableSource<T>.wrap() =
+    private fun <T : Any> ObservableSource<T>.wrap() =
         Observable.wrap(this)
 
     class Wish

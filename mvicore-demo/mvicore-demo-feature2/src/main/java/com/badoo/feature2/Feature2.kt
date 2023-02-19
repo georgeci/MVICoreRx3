@@ -18,8 +18,7 @@ import com.badoo.mvicore.element.NewsPublisher
 import com.badoo.mvicore.element.Reducer
 import com.badoo.mvicore.element.TimeCapsule
 import com.badoo.mvicore.feature.ActorReducerFeature
-import io.reactivex.Observable
-import io.reactivex.Observable.just
+import io.reactivex.rxjava3.core.Observable
 import kotlinx.parcelize.Parcelize
 
 class Feature2(
@@ -59,7 +58,7 @@ class Feature2(
     }
 
     class BootStrapperImpl : Bootstrapper<Wish> {
-        override fun invoke(): Observable<out Wish> = just(LoadNewImage)
+        override fun invoke(): Observable<out Wish> = Observable.just(LoadNewImage)
     }
 
     class ActorImpl : Actor<State, Wish, Effect> {
@@ -68,7 +67,7 @@ class Feature2(
         override fun invoke(state: State, wish: Wish): Observable<Effect> = when (wish) {
             is LoadNewImage -> loadRandomImage()
                 .map { LoadedImage(it.url!!) as Effect }
-                .startWith(just(StartedLoading))
+                .startWith(Observable.just(StartedLoading))
                 .onErrorReturn { ErrorLoading(it) }
         }
 

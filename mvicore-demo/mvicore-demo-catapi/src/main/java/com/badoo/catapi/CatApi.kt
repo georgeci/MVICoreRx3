@@ -1,6 +1,6 @@
 package com.badoo.catapi
 
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.schedulers.Schedulers
 import org.simpleframework.xml.convert.AnnotationStrategy
 import org.simpleframework.xml.core.Persister

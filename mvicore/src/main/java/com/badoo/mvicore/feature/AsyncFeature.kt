@@ -1,7 +1,6 @@
 package com.badoo.mvicore.feature
 
-import io.reactivex.Observable
-
+import io.reactivex.rxjava3.core.Observable
 /**
  * [Feature] that explicitly defines its multithreading capabilities.
  * Use [backgroundStates] and [backgroundNews] to receive updates on the reducer scheduler.

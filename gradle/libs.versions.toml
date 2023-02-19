@@ -1,5 +1,6 @@
 [versions]
-kotlinVersion = "1.7.10"
+kotlinVersion = "1.8.10"
+dokka = "1.7.10"
 detekt = "1.22.0"
 dependencyAnalysis = "1.19.0"
 
@@ -10,9 +11,9 @@ androidMaterialVersion = "1.4.0"
 constraintLayoutVersion = "2.1.0"
 
 # Rx
-rxJavaVersion = "2.2.21"
-rxKotlinVersion = "2.4.0"
-rxAndroidVersion = "2.1.1"
+rxJavaVersion = "3.1.6"
+rxKotlinVersion = "3.0.1"
+rxAndroidVersion = "3.0.2"
 
 # DI
 daggerVersion = "2.45"
@@ -45,9 +46,9 @@ androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayo
 google-material = { module = "com.google.android.material:material", version.ref = "androidMaterialVersion" }
 
 # Rx
-rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxJavaVersion" }
-rxkotlin = { module = "io.reactivex.rxjava2:rxkotlin", version.ref = "rxKotlinVersion" }
-rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxAndroidVersion" }
+rxjava2 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxJavaVersion" }
+rxkotlin = { module = "io.reactivex.rxjava3:rxkotlin", version.ref = "rxKotlinVersion" }
+rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxAndroidVersion" }
 
 # DI
 dagger-runtime = { module = "com.google.dagger:dagger", version.ref = "daggerVersion" }
